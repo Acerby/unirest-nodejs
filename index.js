@@ -961,11 +961,11 @@ Unirest.firstMatch = function firstMatch (string, map) {
  * This allows us to mock super-agent chaining style while using request library under the hood.
  */
 function setupMethod (method) {
-  Unirest[method] = Unirest(method);
+  Unirest[method.toLowerCase()] = Unirest(method);
 }
 
 for (var i = 0; i < Unirest.enum.methods.length; i++) {
-  var method = Unirest.enum.methods[i].toLowerCase();
+  var method = Unirest.enum.methods[i];
   setupMethod(method);
 }
 
